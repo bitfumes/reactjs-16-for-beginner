@@ -21,12 +21,21 @@
       //   let el = React.createElement("h1", null, innerSpan);
       // jsx
       let myTitle = "Hello JSX";
-      let myH1 = (
-        <h1>
-          <span>{myTitle}</span>
-        </h1>
+      function MyH1() {
+        return (
+          <h1>
+            <span>{myTitle}</span>
+          </h1>
+        );
+      }
+      console.log(<MyH1 />);
+
+      let myel = (
+        <div>
+          <MyH1 />
+        </div>
       );
-      let myel = <div>{myH1}</div>;
+
       ReactDOM.render(myel, document.getElementById("root"));
     </script>
   </body>

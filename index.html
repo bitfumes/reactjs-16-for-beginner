@@ -20,13 +20,13 @@
       //   let innerSpan = React.createElement("span", null, "React by Bitfumes");
       //   let el = React.createElement("h1", null, innerSpan);
       // jsx
-      let myel = (
-        <div>
-          <h1>
-            <span>Hello JSX</span>
-          </h1>
-        </div>
+      let myTitle = "Hello JSX";
+      let myH1 = (
+        <h1>
+          <span>{myTitle}</span>
+        </h1>
       );
+      let myel = <div>{myH1}</div>;
       ReactDOM.render(myel, document.getElementById("root"));
     </script>
   </body>

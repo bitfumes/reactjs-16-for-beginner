@@ -20,23 +20,25 @@
       //   let innerSpan = React.createElement("span", null, "React by Bitfumes");
       //   let el = React.createElement("h1", null, innerSpan);
       // jsx
-      let myTitle = "Hello JSX";
-      function MyH1() {
+
+      function MyH1({ myTitle }) {
         return (
           <h1>
             <span>{myTitle}</span>
           </h1>
         );
       }
-      console.log(<MyH1 />);
 
-      let myel = (
-        <div>
-          <MyH1 />
-        </div>
-      );
+      let Myel = () => {
+        let myTitle = "Hello JSX";
+        return (
+          <div>
+            <MyH1 myTitle={myTitle} />
+          </div>
+        );
+      };
 
-      ReactDOM.render(myel, document.getElementById("root"));
+      ReactDOM.render(<Myel />, document.getElementById("root"));
     </script>
   </body>
 </html>

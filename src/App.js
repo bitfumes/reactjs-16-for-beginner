@@ -1,18 +1,10 @@
 import React from "react";
+import "./assets/css/style.css";
 
 function App({ title }) {
   return (
     <div>
-      <div
-        style={{
-          padding: "2rem",
-          border: "1px solid green",
-          backgroundColor: "gray",
-          color: "white",
-        }}
-      >
-        {title}
-      </div>
+      <div className="box">{title}</div>
     </div>
   );
 }

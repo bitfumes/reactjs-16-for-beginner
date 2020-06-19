@@ -20,7 +20,11 @@ class App extends React.Component {
   // states are Immutable
   componentDidMount() {
     console.log("App Mounted");
-    this.setState({ title: "Hello LifeCycle" });
+    // this.setState({ title: "Hello LifeCycle" });
+  }
+
+  componentDidUpdate() {
+    console.log("App Updated");
   }
 
   handleClick = () => {

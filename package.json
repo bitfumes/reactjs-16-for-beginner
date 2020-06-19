@@ -6,12 +6,17 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "autoprefixer": "^9.8.0",
+    "postcss": "^7.0.32",
+    "postcss-cli": "^7.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "tailwindcss": "^1.4.6"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "build:css": "postcss src/assets/css/tailwind.css -o src/assets/css/style.css",
+    "start": "npm run build:css && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

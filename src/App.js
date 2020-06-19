@@ -11,16 +11,23 @@ import "./assets/css/style.css";
 
 class App extends React.Component {
   constructor(props) {
+    console.log("App Contructor");
+
     super(props);
     this.state = { title: "Hello React 2", isShowing: false };
   }
   // states are Immutable
+  componentDidMount() {
+    console.log("App Mounted");
+    this.setState({ title: "Hello LifeCycle" });
+  }
 
   handleClick = () => {
     this.setState({ isShowing: !this.state.isShowing });
   };
 
   render() {
+    console.log("App Render");
     return (
       <section className="flex justify-center">
         <div className="w-1/2">

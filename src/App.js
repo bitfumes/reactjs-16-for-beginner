@@ -1,5 +1,6 @@
 import React from "react";
 import "./assets/css/style.css";
+import Images from "./components/Images";
 
 // function App({ title }) {
 //   return (
@@ -40,9 +41,7 @@ class App extends React.Component {
               Toggle Image
             </button>
           </div>
-          {this.state.isShowing ? (
-            <img src="https://images.unsplash.com/photo-1592419044706-39796d40f98c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1311&q=80" />
-          ) : null}
+          {this.state.isShowing ? <Images /> : null}
         </div>
       </section>
     );

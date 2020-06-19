@@ -1,27 +1,49 @@
 import React, { useEffect, useState } from "react";
 
 export default function Images() {
-  const Images = [
+  const [images, setimages] = useState([
     "https://images.unsplash.com/photo-1592419044706-39796d40f98c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1311&q=80",
     "https://images.unsplash.com/photo-1547111962-50a04ac74d73?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     "https://images.unsplash.com/photo-1506882741710-98761c574b48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     "https://images.unsplash.com/photo-1487537177666-94b1f521631a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-  ];
+  ]);
+
+  const [newImageUrl, setNewImageUrl] = useState("");
 
   function ShowImage() {
-    return Images.map((image) => {
+    return images.map((image) => {
       return (
-        <div>
+        <div className="w-1/3">
           <img src={image} width="150" />
         </div>
       );
     });
   }
 
+  function handleAdd() {
+    setimages([newImageUrl, ...images]);
+    setNewImageUrl("");
+  }
+
+  function handleChange(event) {
+    setNewImageUrl(event.target.value);
+  }
+
   return (
     <section>
-      <div className="flex justify-center">
+      <div className="flex flex-wrap justify-center">
         <ShowImage />
+      </div>
+      <div className="flex justify-between my-5">
+        <input
+          type="text"
+          className="p-2 border border-gray-800 shadow rounded"
+          value={newImageUrl}
+          onChange={handleChange}
+        />
+        <button className="p-2 bg-green-600 text-white" onClick={handleAdd}>
+          Add New
+        </button>
       </div>
     </section>
   );

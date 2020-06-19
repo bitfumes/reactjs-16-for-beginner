@@ -16,6 +16,10 @@ class App extends React.Component {
   }
   // states are Immutable
 
+  handleClick = () => {
+    this.setState({ isShowing: !this.state.isShowing });
+  };
+
   render() {
     return (
       <section className="flex justify-center">
@@ -24,9 +28,7 @@ class App extends React.Component {
             <div className="my-4">{this.state.title}</div>
             <button
               className="p-1 bg-blue-700 text-white my-2"
-              onClick={() =>
-                this.setState({ isShowing: !this.state.isShowing })
-              }
+              onClick={this.handleClick}
             >
               Toggle Image
             </button>

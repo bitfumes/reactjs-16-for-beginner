@@ -1,15 +1,27 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./assets/css/style.css";
 import Images from "./components/Images";
 
 function App() {
   const [title, setTitle] = useState("Hello React");
   const [isShowing, setIsShowing] = useState(false);
+  const [didMount, setdidMount] = useState(false);
+  const mountRef = useRef(false);
 
   // Component Did Mount only
   useEffect(() => {
+    setdidMount(true);
     console.log("App Mounted");
   }, []);
+
+  // Component Will Update
+  useEffect(() => {
+    if (mountRef.current) {
+      console.log("App Updated");
+    } else {
+      mountRef.current = true;
+    }
+  }, [isShowing]);
 
   function handleClick() {
     setIsShowing(!isShowing);

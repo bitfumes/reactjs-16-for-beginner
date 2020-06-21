@@ -19,16 +19,25 @@ export default function Images() {
     ]);
   }
 
+  const [isHovering, setIsHovering] = useState(false);
+
   function ShowImage() {
     return images.map((image, index) => {
       return (
         <div className="w-1/3 my-4 flex justify-center" key={index}>
           <div className="relative">
             <i
-              className="fas fa-times absolute right-0 cursor-pointer opacity-25 hover:opacity-100"
+              className={`fas fa-times absolute right-0 cursor-pointer opacity-25 hover:opacity-100 ${
+                isHovering ? "" : "hidden"
+              }`}
               onClick={() => handleRemove(index)}
             ></i>
-            <img src={image} width="150" />
+            <img
+              src={image}
+              width="150"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+            />
           </div>
         </div>
       );

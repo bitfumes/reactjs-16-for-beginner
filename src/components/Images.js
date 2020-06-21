@@ -11,15 +11,19 @@ export default function Images() {
 
   const [newImageUrl, setNewImageUrl] = useState("");
 
-  function handleRemove() {
-    console.log("reaching");
+  function handleRemove(index) {
+    // setimages(images.filter((image, i) => i !== index));
+    setimages([
+      ...images.slice(0, index),
+      ...images.slice(index + 1, images.length),
+    ]);
   }
 
   function ShowImage() {
     return images.map((image, index) => {
       return (
         <div className="w-1/3 my-4 flex justify-center" key={index}>
-          <img src={image} width="150" onClick={handleRemove} />
+          <img src={image} width="150" onClick={() => handleRemove(index)} />
         </div>
       );
     });

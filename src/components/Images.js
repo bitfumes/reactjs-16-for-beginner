@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import Image from "./image";
 
 export default function Images() {
@@ -21,6 +21,14 @@ export default function Images() {
     varRef.current = varRef.current + 1;
   });
 
+  useEffect(() => {
+    console.log("i am use effect 1");
+  });
+
+  useLayoutEffect(() => {
+    console.log("i am use effect 2");
+  });
+
   const [newImageUrl, setNewImageUrl] = useState("");
 
   function handleRemove(index) {
@@ -29,6 +37,7 @@ export default function Images() {
       ...images.slice(0, index),
       ...images.slice(index + 1, images.length),
     ]);
+    console.log("I am changing state");
   }
 
   function ShowImage() {
@@ -55,6 +64,7 @@ export default function Images() {
 
   return (
     <section>
+      {console.log("i am jsx")}
       <p>Component is updated {varRef.current} times</p>
       <div className="flex flex-wrap justify-center">
         <ShowImage />

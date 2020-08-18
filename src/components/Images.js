@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "./image";
 
 export default function Images() {
@@ -9,6 +9,17 @@ export default function Images() {
     "https://images.unsplash.com/photo-1506882741710-98761c574b48?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
     "https://images.unsplash.com/photo-1487537177666-94b1f521631a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
   ]);
+
+  const inputRef = useRef(null);
+  const varRef = useRef(images.length);
+  useEffect(() => {
+    inputRef.current.focus();
+    // console.log(varRef);
+  }, []);
+
+  useEffect(() => {
+    varRef.current = varRef.current + 1;
+  });
 
   const [newImageUrl, setNewImageUrl] = useState("");
 
@@ -44,6 +55,7 @@ export default function Images() {
 
   return (
     <section>
+      <p>Component is updated {varRef.current} times</p>
       <div className="flex flex-wrap justify-center">
         <ShowImage />
       </div>
@@ -51,6 +63,8 @@ export default function Images() {
         <div className="w-full">
           <input
             type="text"
+            id="inputBox"
+            ref={inputRef}
             className="p-2 border border-gray-800 shadow rounded w-full"
             value={newImageUrl}
             onChange={handleChange}

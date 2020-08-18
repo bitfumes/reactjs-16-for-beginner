@@ -21,11 +21,13 @@ export default function Images() {
     varRef.current = varRef.current + 1;
   });
 
+  const [myName, setMyName] = useState("Sarthak");
   useEffect(() => {
     console.log("i am use effect 1");
   });
 
   useLayoutEffect(() => {
+    setMyName("Reactjs");
     console.log("i am use effect 2");
   });
 
@@ -64,7 +66,7 @@ export default function Images() {
 
   return (
     <section>
-      {console.log("i am jsx")}
+      <p>My Name is {myName}</p>
       <p>Component is updated {varRef.current} times</p>
       <div className="flex flex-wrap justify-center">
         <ShowImage />

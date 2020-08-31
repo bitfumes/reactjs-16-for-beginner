@@ -1,15 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import "./assets/css/style.css";
 import Images from "./components/Images";
 
 function App() {
-  const [title, setTitle] = useState("Hello React");
-
   return (
     <section className="flex justify-center">
       <div className="w-10/12">
         <div className="text-center">
-          <div className="my-4">{title}</div>
           <Images />
         </div>
       </div>

@@ -1,18 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import Image from "./image";
 import useFetchImage from "../utils/hooks/useFetchImage";
 
 export default function Images() {
   const [page, setPage] = useState(1);
-  const [images, setImages] = useFetchImage(page);
-
-  const inputRef = useRef(null);
-
-  useEffect(() => {
-    inputRef.current.focus();
-  }, []);
-
-  const [newImageUrl, setNewImageUrl] = useState("");
+  const [images, setImages, errors] = useFetchImage(page);
 
   function handleRemove(index) {
     setImages([
@@ -32,46 +24,19 @@ export default function Images() {
     ));
   }
 
-  function handleAdd() {
-    if (newImageUrl !== "") {
-      setImages([newImageUrl, ...images]);
-      setNewImageUrl("");
-    }
-  }
-
-  function handleChange(event) {
-    setNewImageUrl(event.target.value);
-  }
-
   return (
     <section>
+      {errors.length > 0 && (
+        <div className="flex h-screen">
+          <p className="m-auto">{errors[0]}</p>
+        </div>
+      )}
       <div className="gap-0" style={{ columnCount: 5 }}>
         <ShowImage />
       </div>
-      <button onClick={() => setPage(page + 1)}>Load More</button>
-      <div className="flex justify-between my-5">
-        <div className="w-full">
-          <input
-            type="text"
-            id="inputBox"
-            ref={inputRef}
-            className="p-2 border border-gray-800 shadow rounded w-full"
-            value={newImageUrl}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="">
-          <button
-            disabled={newImageUrl === ""}
-            className={`p-2 text-white ml-2 ${
-              newImageUrl !== "" ? "bg-green-600" : "bg-green-300"
-            }`}
-            onClick={handleAdd}
-          >
-            Add
-          </button>
-        </div>
-      </div>
+      {errors.length === 0 && (
+        <button onClick={() => setPage(page + 1)}>Load More</button>
+      )}
     </section>
   );
 }

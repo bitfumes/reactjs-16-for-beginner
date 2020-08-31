@@ -4,7 +4,7 @@ export default function Image({ index, image, handleRemove }) {
   const [isHovering, setIsHovering] = useState(false);
 
   return (
-    <div className="p-1 m-1 border flex justify-center">
+    <div className="w-1/3 p-1 border flex justify-center">
       <div
         className="relative"
         onMouseEnter={() => setIsHovering(true)}

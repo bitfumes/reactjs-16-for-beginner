@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Image from "./image";
 import useFetchImage from "../utils/hooks/useFetchImage";
+import Loading from "./Loading";
 
 export default function Images() {
   const [page, setPage] = useState(1);
-  const [images, setImages, errors] = useFetchImage(page);
+  const [images, setImages, errors, isLoading] = useFetchImage(page);
 
   function handleRemove(index) {
     setImages([
@@ -23,6 +24,8 @@ export default function Images() {
       />
     ));
   }
+
+  if (isLoading) return <Loading />;
 
   return (
     <section>

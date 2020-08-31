@@ -2,18 +2,11 @@ import React, { useState, useEffect } from "react";
 import Image from "./image";
 import useFetchImage from "../utils/hooks/useFetchImage";
 import Loading from "./Loading";
-import useScroll from "../utils/hooks/useScroll";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 export default function Images() {
   const [page, setPage] = useState(1);
   const [images, setImages, errors, isLoading] = useFetchImage(page);
-  const scrollPosition = useScroll();
-
-  useEffect(() => {
-    if (scrollPosition >= document.body.offsetHeight - window.innerHeight) {
-      setPage(page + 1);
-    }
-  }, [scrollPosition]);
 
   function handleRemove(index) {
     setImages([
@@ -23,17 +16,24 @@ export default function Images() {
   }
 
   function ShowImage() {
-    return images.map((img, index) => (
-      <Image
-        image={img.urls.regular}
-        handleRemove={handleRemove}
-        index={index}
-        key={index}
-      />
-    ));
+    return (
+      <InfiniteScroll
+        dataLength={images.length}
+        next={() => setPage(page + 1)}
+        hasMore={true}
+        className="flex flex-wrap"
+      >
+        {images.map((img, index) => (
+          <Image
+            image={img.urls.regular}
+            handleRemove={handleRemove}
+            index={index}
+            key={index}
+          />
+        ))}
+      </InfiniteScroll>
+    );
   }
-
-  if (isLoading) return <Loading />;
 
   return (
     <section>
@@ -42,12 +42,8 @@ export default function Images() {
           <p className="m-auto">{errors[0]}</p>
         </div>
       )}
-      <div className="flex flex-wrap">
-        <ShowImage />
-      </div>
-      {errors.length === 0 && (
-        <button onClick={() => setPage(page + 1)}>Load More</button>
-      )}
+      <ShowImage />
+      {isLoading && <Loading />}
     </section>
   );
 }

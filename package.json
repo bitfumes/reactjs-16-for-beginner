@@ -12,6 +12,7 @@
     "postcss-cli": "^7.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-infinite-scroll-component": "^5.0.5",
     "react-scripts": "3.4.1",
     "tailwindcss": "^1.4.6"
   },

@@ -6,16 +6,16 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "autoprefixer": "^9.8.0",
+    "autoprefixer": "^9.8.6",
     "axios": "^0.20.0",
     "postcss": "^7.0.32",
-    "postcss-cli": "^7.1.1",
+    "postcss-cli": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-infinite-scroll-component": "^5.0.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.7.6"
   },
   "scripts": {
     "build:css": "postcss src/assets/css/tailwind.css -o src/assets/css/style.css",

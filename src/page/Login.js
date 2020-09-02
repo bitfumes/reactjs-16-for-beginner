@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import firebase from "../config/firebase";
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [form, setForm] = useState({ email: "", password: "" });
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const history = useHistory();
 
   function handleForm(e) {
     if (isLoading) return;
@@ -14,6 +17,8 @@ export default function Login() {
       .auth()
       .signInWithEmailAndPassword(form.email, form.password)
       .then((res) => {
+        history.replace("/");
+        // setIsLoggedIn(true);
         setError("");
         setIsLoading(false);
       })
@@ -26,6 +31,8 @@ export default function Login() {
   function handleInput(e) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
+
+  // if (isLoggedIn) return <Redirect to="/" />;
 
   return (
     <div className="flex h-screen bg-gray-200">

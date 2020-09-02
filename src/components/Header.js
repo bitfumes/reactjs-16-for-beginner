@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import firebase from "../config/firebase";
+import AppContext from "../store/AppContext";
 
 export default function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, user] = useContext(AppContext);
   const history = useHistory();
 
   function logout() {
@@ -11,7 +12,6 @@ export default function Header() {
       .auth()
       .signOut()
       .then((res) => {
-        setIsLoggedIn(false);
         history.replace("/login");
       })
       .catch((e) => {

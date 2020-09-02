@@ -4,11 +4,11 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import routes from "./utils/routes";
 import Header from "./components/Header";
 import firebase from "./config/firebase";
+import AppContext from "./store/AppContext";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  const AppContext = React.createContext({ loggedIn: false, user: {} });
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((user) => {

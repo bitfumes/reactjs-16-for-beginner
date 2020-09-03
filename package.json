@@ -9,6 +9,7 @@
     "autoprefixer": "^9.8.6",
     "axios": "^0.20.0",
     "firebase": "^7.19.1",
+    "formik": "^2.1.5",
     "postcss": "^7.0.32",
     "postcss-cli": "^7.1.2",
     "react": "^16.13.1",

@@ -17,7 +17,8 @@
     "react-infinite-scroll-component": "^5.0.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "tailwindcss": "^1.7.6"
+    "tailwindcss": "^1.7.6",
+    "yup": "^0.29.3"
   },
   "scripts": {
     "build:css": "postcss src/assets/css/tailwind.css -o src/assets/css/style.css",

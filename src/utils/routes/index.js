@@ -2,6 +2,7 @@ import React from "react";
 import Home from "../../page/Home";
 import Gallery from "../../page/Gallery";
 import Login from "../../page/Login";
+import SignUp from "../../page/SignUp";
 
 export default [
   {
@@ -18,6 +19,11 @@ export default [
   {
     path: "/login",
     component: () => <Login />,
+    protected: "guest",
+  },
+  {
+    path: "/signup",
+    component: () => <SignUp />,
     protected: "guest",
   },
 ];

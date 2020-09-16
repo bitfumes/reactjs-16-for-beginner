@@ -41,10 +41,10 @@ export default function Images() {
               animate={{ opacity: 1 }}
             >
               <Image
-                show={false}
+                show={() => setShowPreview(img.urls.regular)}
                 image={img.urls.regular}
                 handleRemove={handleRemove}
-                index={"index"}
+                index={index}
               />
             </motion.div>
           ))}

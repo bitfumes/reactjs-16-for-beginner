@@ -37,8 +37,8 @@ function App() {
   return (
     <AppContext.Provider value={[isLoggedIn, user]}>
       <Header />
-      <AnimatePresence>
-        <Switch key={location.pathname}>
+      <AnimatePresence exitBeforeEnter initial={false}>
+        <Switch key={location.pathname} location={location}>
           {routes.map((route, index) => {
             if (route.protected === "guest") {
               return (

@@ -36,6 +36,7 @@ export default function Images() {
             <motion.div
               className="w-1/6 p-1 border flex justify-center"
               key={index}
+              layoutId={img.urls.regular}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
@@ -52,7 +53,8 @@ export default function Images() {
         <AnimatePresence>
           {showPreview && (
             <motion.section
-              exit={{ opacity: 0 }}
+              layoutId={showPreview}
+              exit={{ opacity: 0, rotate: 360, transition: { duration: 1 } }}
               className="fixed w-full h-full flex justify-center items-center top-0 left-0 z-40"
               onClick={() => setShowPreview(false)}
             >

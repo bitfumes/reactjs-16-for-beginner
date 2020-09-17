@@ -10,7 +10,7 @@ export default function Tensorflow() {
       <div className="w-1/3">
         <h1 className="text-center">TensorFlow Example</h1>
         <img
-          src="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE2MjI1Nn0"
+          src="https://images.unsplash.com/photo-1554692918-08fa0fdc9db3?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE2MjI1Nn0"
           width="400"
           crossOrigin="anonymous"
           ref={imageRef}
@@ -18,7 +18,7 @@ export default function Tensorflow() {
         <div className="text-center my-5">
           {predictions.length > 0 &&
             predictions.map((prediction) => (
-              <div className="flex justify-between">
+              <div className="flex justify-between text-sm">
                 <p>{prediction.className}</p>
                 <p>{Math.floor(prediction.probability * 100)} %</p>
               </div>

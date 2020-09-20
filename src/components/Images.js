@@ -55,12 +55,12 @@ export default function Images() {
             <motion.div
               className="w-1/6 p-1 border flex justify-center"
               key={index}
-              layoutId={img.urls.regular}
+              layoutId={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
             >
               <Image
-                show={() => setShowPreview(img.urls.regular)}
+                show={() => setShowPreview(index)}
                 image={img.urls.regular}
                 handleRemove={handleRemove}
                 index={index}
@@ -79,7 +79,7 @@ export default function Images() {
             >
               <div className="bg-white">
                 <img
-                  src={showPreview}
+                  src={images[showPreview].urls.regular}
                   className="rounded-lg"
                   width="300"
                   height="auto"

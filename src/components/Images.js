@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Image from "./image";
 import useFetchImage from "../utils/hooks/useFetchImage";
 import Loading from "./Loading";
@@ -83,6 +83,7 @@ export default function Images() {
                   className="rounded-lg"
                   width="300"
                   height="auto"
+                  alt="unplash"
                 />
               </div>
             </motion.section>

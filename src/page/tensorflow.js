@@ -13,6 +13,7 @@ export default function Tensorflow() {
           src="https://images.unsplash.com/photo-1554692918-08fa0fdc9db3?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjE2MjI1Nn0"
           width="400"
           crossOrigin="anonymous"
+          alt="upsplash"
           ref={imageRef}
         />
         <div className="text-center my-5">

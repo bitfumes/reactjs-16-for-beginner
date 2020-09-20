@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import firebase from "../config/firebase";
 import { useHistory } from "react-router-dom";
-import { useFormik, Formik, Form, ErrorMessage, Field } from "formik";
+import { Formik, Form, ErrorMessage, Field } from "formik";
 import * as Yup from "yup";
 
 export default function SignUp() {

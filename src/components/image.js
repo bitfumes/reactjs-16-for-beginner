@@ -45,6 +45,7 @@ function Image({ index, image, handleRemove, show }) {
         src={image}
         width="100%"
         height="auto"
+        alt="unspalsh"
         crossOrigin="anonymous"
       />
     </div>
